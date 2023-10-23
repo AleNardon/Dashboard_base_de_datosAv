@@ -1,5 +1,5 @@
 import {BrowserRouter , Routes, Route} from 'react-router-dom';
-
+import './stylesheets/normalize.css';
 import LoginPage  from "./pages/LoginPage";
 import InicioPage from './pages/InicioPage';
 import AlumnosPage from './pages/AlumnosPage';

@@ -1,0 +1,33 @@
+.inputForm{
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #000000;
+    border-radius: 0.3rem;
+    margin: 0.5rem;
+}
+.inputForm {
+    line-height: 28px;
+    border: 2px solid transparent;
+    border-bottom-color: #777777;
+    padding: .2rem 0;
+    /* outline: none; */
+    background-color: transparent;
+    color: #0d0c22;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+   }
+   
+   .inputForm:focus, inputForm:hover {
+    /* outline: none; */
+    padding: .2rem 0.3rem;
+    border-radius: 1rem;
+    border-color: #7a9cc6;
+   }
+   
+   .inputForm::placeholder {
+    color: #777777;
+   }
+   
+   .inputForm:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+   }
