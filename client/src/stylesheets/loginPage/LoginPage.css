@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'DM Sans', sans-serif;
+    height: 100vh;
+    color: rgb(0, 0, 0);
+    background: #dddddd;
+    font-size: 1.3rem;
+}
+.contenedorForm{
+    padding: 1rem;
+    border: 1px solid black;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    border-radius: 0.4rem;
+    background: #dbdbdb;
+}
+
+h1{
+    width: 100%;
+}
+
+span{
+    color: red;
+    padding: 2rem;
+}

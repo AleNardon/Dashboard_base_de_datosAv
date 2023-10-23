@@ -3,6 +3,9 @@ import {useForm} from 'react-hook-form'
 import { useAuth } from '../context/authContext';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../stylesheets/loginPage/LoginPage.css';
+import '../stylesheets/loginPage/buttonLoginPage.css'	;
+import '../stylesheets/loginPage/inputsLoginPage.css'	;	
 
 
 
@@ -23,17 +26,21 @@ function LoginPage() {
     })
 
   return (
-    <div>
-
-        <form onSubmit={onSubmit}>
-            <label htmlFor="email">Email</label>
-            <input type="email" {...register("email", {required: true})}  />
-            {errors.email && <span>Este campo es requerido</span>}
-            <label htmlFor="password">Password</label>
-            <input type="password" {...register("password", {required:true})}  />
-            {errors.password && <span>Este campo es requerido</span>}
-            {LogErrors && <span>{LogErrors}</span>}
-            <button type="submit">Login</button>
+    <div className='contenedorForm'>
+        <h1 className='tituloForm'>Inicio de sesión</h1>
+        <form className='formLogin' onSubmit={onSubmit}>
+            <div className='divLabel'>
+                <label className='labelForm' htmlFor="email">Correo electrónico</label>
+                <input className='inputForm' type="email" {...register("email", {required: true})}  />
+                {errors.email && <span>¡Este campo es requerido!</span>}
+            </div>
+            <div className='divLabel'>
+                <label className='labelForm' htmlFor="password">Contraseña</label>
+                <input className='inputForm' type="password" {...register("password", {required:true})}  />
+                {errors.password && <span>¡Este campo es requerido!</span>}
+                {LogErrors && <span>{LogErrors}</span>}
+            </div>
+            <button className='btn' type="submit">Login</button>
         </form>
     </div>
   )
