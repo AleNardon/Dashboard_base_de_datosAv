@@ -2,6 +2,8 @@ import bcrypt from "bcrypt";
 // import jwt from "jsonwebtoken";
 import { pool } from "../db.js";
 import { createAccessToken } from "../libs/jwt.js";
+import jwt from "jsonwebtoken";
+import { TOKEN_SECRET } from "../config.js";
 
 // export const getLogin = (req, res) => {
 //     let h1 = "<h1>LOGIN</h1>";
@@ -59,7 +61,7 @@ export const login = async (req, res) => {
             });
         }
         
-        const payload = {email:row[0].email,username:row[0].username,user_level:row[0].user_level,};
+        const payload = {id:row[0].id,email:row[0].email,username:row[0].username,user_level:row[0].user_level,};
         const token = await createAccessToken({...payload});
         res.cookie("token", token);
         res.json(payload);
@@ -73,4 +75,21 @@ export const login = async (req, res) => {
 export const logout = (req, res) => {
     res.clearCookie("token");
     res.json({ message: "logout" });
+}
+
+// validamos el token que tiene desde el frontend
+export const verifyToken = async (req, res) => { 
+    const {token} = req.cookies  ;
+
+    if(!token) return res.status(401).json({error:"Unauthorized"});
+    
+    //verificamos puede ser un error o el usuario decodificado en el token 
+    jwt.verify(token,TOKEN_SECRET, async (err,user)=>{
+        if(err) return res.status(401).json({error:"Unauthorized"});
+        
+        const userFound = await pool.query("SELECT * FROM users where id=? ", [user.id]);
+
+        if (!userFound) return res.status(401).json({error:"Unauthorized"});
+        return res.json({user:userFound[0]});
+    } );
 }
