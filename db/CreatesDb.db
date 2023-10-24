@@ -71,3 +71,4 @@ CREATE TABLE
         aclaracion VARCHAR(200) NOT NULL,
         PRIMARY KEY (forma_pago_id)
     );
+
