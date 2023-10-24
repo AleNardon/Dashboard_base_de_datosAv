@@ -1,8 +1,12 @@
 import express, { json } from "express";
 import morgan from "morgan"
-import authRoutes from "./routes/auth.routes.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
+
+import authRoutes from "./routes/auth.routes.js"
+import planesRoutes from "./routes/planes.routes.js"
+import alumnosRoutes from "./routes/alumnos.routes.js"
+import pagosRoutes from "./routes/pagos.routes.js"
 // import { PORT } from "./config.js";
 
 
@@ -18,5 +22,8 @@ app.use(cookieParser())
 
 
 app.use('/api',authRoutes)
+app.use('/api/planes',planesRoutes)
+app.use('/api/alumnos',alumnosRoutes)
+app.use('/api/pagos',pagosRoutes)
 
 export default app
