@@ -1,0 +1,8 @@
+INSERT INTO `planes` ( `cant_clases`, `precio`, `aclaracion`) VALUES 
+('1', '5400', '1 clase sola'),
+('4', '18100', '4 clases en 4 semanas'),
+('8', '32500', '8 clases en 4 semanas')
+
+
+INSERT INTO `formas_de_pago` ( `aclaracion`) VALUES 
+( 'efectivo'),( 'tranferencia'),( 'tarjeta de credito'),( 'tarjeta de debito')
