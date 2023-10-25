@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { useAuth } from "../context/authContext"
+
+import '../stylesheets/normalize.css'
 
 
 function Navbar() {
@@ -7,20 +9,23 @@ function Navbar() {
 
     if (isAuth){
         return(
-            <div>
-                <nav>
-                    <ul>
-                        <li><Link to="/inicio">Inicio</Link></li>
-                        <li><Link to="/alumnos">Alumnos</Link></li>
-                        <li><Link to="/pagos">Pagos</Link></li>
-                        <li><Link to="/planes">Planes</Link></li>
-                        <li><Link to="/" onClick={()=>{logout()}}>Logout</Link></li>
+            
+                <nav className="nabvar">
+                    <ul>    
+                        <NavLink to="/inicio" ><li>Inicio</li></NavLink>
+                        <NavLink to="/alumnos"><li>Alumnos</li></NavLink>
+                        <NavLink to="/pagos"><li>Pagos</li></NavLink>
+                        <NavLink to="/planes"><li>Planes</li></NavLink>
+                        <Link to="/" onClick={()=>{logout()}}><li>Logout</li></Link>
                     </ul>
                 </nav>
-            </div>
+
         )
     }
     return
 }
 
 export default Navbar
+
+
+// className={({isActive})=>isActive? 'active':''}

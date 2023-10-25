@@ -26,22 +26,24 @@ function LoginPage() {
     })
 
   return (
-    <div className='contenedorForm'>
-        <h1 className='tituloForm'>Inicio de sesión</h1>
-        <form className='formLogin' onSubmit={onSubmit}>
-            <div className='divLabel'>
-                <label className='labelForm' htmlFor="email">Correo electrónico</label>
-                <input className='inputForm' type="email" {...register("email", {required: true})}  />
-                {errors.email && <span>¡Este campo es requerido!</span>}
-            </div>
-            <div className='divLabel'>
-                <label className='labelForm' htmlFor="password">Contraseña</label>
-                <input className='inputForm' type="password" {...register("password", {required:true})}  />
-                {errors.password && <span>¡Este campo es requerido!</span>}
-                {LogErrors && <span>{LogErrors}</span>}
-            </div>
-            <button className='btn' type="submit">Login</button>
-        </form>
+    <div className='bodyLogin'>
+        <div className='contenedorForm'>
+            <h1 className='tituloForm'>Inicio de sesión</h1>
+            <form className='formLogin' onSubmit={onSubmit}>
+                <div className='divLabel'>
+                    <label className='labelForm' htmlFor="email">Correo electrónico</label>
+                    <input className='inputForm' type="email" {...register("email", {required: true})}  />
+                    {errors.email && <span>¡Este campo es requerido!</span>}
+                </div>
+                <div className='divLabel'>
+                    <label className='labelForm' htmlFor="password">Contraseña</label>
+                    <input className='inputForm' type="password" {...register("password", {required:true})}  />
+                    {errors.password && <span>¡Este campo es requerido!</span>}
+                    {LogErrors && <span>{LogErrors}</span>}
+                </div>
+                <button className='btn' type="submit">Login</button>
+            </form>
+        </div>
     </div>
   )
 } 
