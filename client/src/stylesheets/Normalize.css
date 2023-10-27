@@ -347,3 +347,73 @@
   [hidden] {
     display: none;
   }
+
+  :root {
+    --main-red-color: rgb(128, 2, 2);
+    --main-blue-color: #384E77;
+
+  }
+
+  .nabvar{
+  
+    display:grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    background: #d1d1d1;
+    font-family: sans-serif;
+    /* position:fixed; */
+    top:0;
+    width:100%;
+
+    }
+  
+  .nabvar ul{
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0px 25px 0px 25px;
+  }
+  .nabvar ul a{
+    padding: 15px 20px;
+  }
+  .nabvar ul a {
+    font-size: 20px;
+    text-decoration: none;
+    
+    color: #292929;
+  }
+  .nabvar ul a:last-child li{
+    font-size: 20px;
+    text-decoration: none;
+    
+    color: var(--main-red-color);
+  }
+  .nabvar ul a:last-child {
+    margin-left: auto;
+  }
+  .nabvar ul a:last-child:hover {
+    background-color: var(--main-red-color);
+  }
+  .nabvar ul a:last-child:hover {
+    color: #fff;
+  } 
+
+  .nabvar ul a:hover{
+    background-color: var(--main-blue-color);
+  }
+  .nabvar ul a:hover li{
+    color: #fff;
+  }
+.active{
+    background-color: var(--main-blue-color);
+  }
+ .active li {
+    color: #fff;
+  }
+
+  .MuiToolbar-root{
+    overflow: hidden;
+  }

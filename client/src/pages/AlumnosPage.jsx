@@ -1,8 +1,15 @@
-    
-
+import { StrictMode } from "react";
+import AlumnosTable from "../components/alumnosTable"    
+import { StyledEngineProvider } from '@mui/material/styles';
 function AlumnosPage() {
   return (
-    <div>AlumnosPages</div>
+    <StrictMode>
+
+      <StyledEngineProvider injectFirst>
+
+        <AlumnosTable />
+      </StyledEngineProvider>
+    </StrictMode>
   )
 }
 
