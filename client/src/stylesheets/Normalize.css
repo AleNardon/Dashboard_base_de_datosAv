@@ -413,3 +413,7 @@
  .active li {
     color: #fff;
   }
+
+  .MuiToolbar-root{
+    overflow: hidden;
+  }
