@@ -76,8 +76,8 @@ const columns = [
 
 function AlumnosTable() {
   return (
-    <div style={{ height: 800, width: '100%' }}>
-      <DataGrid
+    <div className='divDataGrid' style={{ height: 800, width: '100%' }}>
+      <DataGrid className='dataGrid'
         rows={alumnos}
         columns={columns}
         initialState={{
