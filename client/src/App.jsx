@@ -18,7 +18,7 @@ function App() {
         
         <Route path="/" element={<LoginPage/> }/>      
           
-          <Route element={<ProtectedRoute/>}>
+          <Route Component={ProtectedRoute}>
             
             <Route path="/planes" element={ <PlanesPage/> }/>
             <Route path="/inicio" element={<InicioPage/>}/>
