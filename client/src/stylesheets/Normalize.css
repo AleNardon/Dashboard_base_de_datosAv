@@ -21,6 +21,8 @@
    */
   
   body {
+    font-family: 'Poppins', sans-serif !important;
+    
     margin: 0;
   }
   
@@ -350,8 +352,10 @@
 
   :root {
     --main-red-color: rgb(128, 2, 2);
+    --main-green-color: #22873E;
     --main-blue-color: #384E77;
-
+    
+    --main-redneg-color: #c60000;
   }
 
   .nabvar{
@@ -360,7 +364,7 @@
     grid-template-columns: 1fr auto;
     align-items: center;
     background: #d1d1d1;
-    font-family: sans-serif;
+    
     /* position:fixed; */
     top:0;
     width:100%;
@@ -417,3 +421,81 @@
   .MuiToolbar-root{
     overflow: hidden;
   }
+
+  .DivTable{
+    font-family: 'Poppins', sans-serif !important;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: #f3f3f3;
+    border-radius: 7px;
+    box-shadow: 0px 0px 2px rgb(145 145 145);
+  }
+.MuiDataGrid-root{
+  border-width: 0px; 
+  border-style: none;
+  border-color: rgba(224, 224, 224, 1);
+
+
+}
+.MuiButtonBase-root{
+  color: var(--main-blue-color);
+}
+
+.spanNoTablaAlumno,.spanSiTablaAlumno{
+    width: 35px;
+    border-radius: 28px;
+    height: 25px;
+}
+.spanSiTablaAlumno{
+  background-color: var(--main-green-color);
+}
+
+.spanNoTablaAlumno{
+  background-color: var(--main-redneg-color);
+
+}
+
+.link {
+  text-decoration:none;
+  color: var(--main-blue-color);
+  font-size: 17px;
+}
+.spanNoDeuda,.spanSiDeuda{
+  padding: 3px 10px 3px 10px;
+ 
+  color: #fff;
+  font-size: 16px;
+  border-radius: 20px;
+  
+}
+.spanNoDeuda{
+  background: var(--main-green-color);
+}
+.spanSiDeuda{
+  background: var(--main-redneg-color);
+}
+.wppIcon {
+  width: 30px;
+  height: 30px;
+  color: #292929;
+}
+.wppIcon:hover{
+color: #22873E;
+}
+
+.MuiDataGrid-columnHeaderTitle{
+  font-size: 16px;
+}
+.MuiDataGrid-toolbarContainer{
+  margin-bottom: 4px;
+}
+.MuiDataGrid-cell:active{
+  border:none;
+  border-style: none;
+}
+.MuiDataGrid-cell:focus{
+  outline: solid 0px  !important;
+}
