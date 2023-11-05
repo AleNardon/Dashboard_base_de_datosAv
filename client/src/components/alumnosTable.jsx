@@ -135,8 +135,10 @@ const columns = [
 
 function AlumnosTable() {
   return (
+
     <div className='DivTable'>
       <DataGrid
+
         rows={alumnos}
         columns={columns}
         initialState={{
