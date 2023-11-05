@@ -33,13 +33,13 @@ function LoginPage() {
                 <div className='divLabel'>
                     <label className='labelForm' htmlFor="email">Correo electrónico</label>
                     <input className='inputForm' type="email" {...register("email", {required: true})}  />
-                    {errors.email && <span>¡Este campo es requerido!</span>}
+                    {errors.email && <span className='spanLogin'>¡Este campo es requerido!</span>}
                 </div>
                 <div className='divLabel'>
                     <label className='labelForm' htmlFor="password">Contraseña</label>
                     <input className='inputForm' type="password" {...register("password", {required:true})}  />
-                    {errors.password && <span>¡Este campo es requerido!</span>}
-                    {LogErrors && <span>{LogErrors}</span>}
+                    {errors.password && <span className='spanLogin'>¡Este campo es requerido!</span>}
+                    {LogErrors && <span className='spanLogin'>{LogErrors}</span>}
                 </div>
                 <button className='btn' type="submit">Login</button>
             </form>
