@@ -17,11 +17,11 @@
     background: #dbdbdb;
 }
 
-h1{
+.h1{
     width: 100%;
 }
 
-span{
+.span{
     color: red;
     padding: 2rem;
 }
