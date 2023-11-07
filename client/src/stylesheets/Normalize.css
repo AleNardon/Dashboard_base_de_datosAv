@@ -446,9 +446,9 @@
 }
 
 .spanNoTablaAlumno,.spanSiTablaAlumno{
-    width: 35px;
+    width: 20px;
     border-radius: 28px;
-    height: 25px;
+    height: 20px;
 }
 .spanSiTablaAlumno{
   background-color: var(--main-green-color);
