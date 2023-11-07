@@ -1,11 +1,11 @@
-create database dashboardBD use dashboardBD 
+#create database dashboardBD use dashboardBD 
 
 Create table
     users(
         id int primary key AUTO_INCREMENT,
-        email nvarchar(255) NOT NULL,
-        username nvarchar(255) NOT NULL,
-        password nvarchar(255) NOT NULL,
+        email varchar(255) NOT NULL,
+        username varchar(255) NOT NULL,
+        password varchar(255) NOT NULL,
         user_level int,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         UNIQUE(username, email)
@@ -48,12 +48,19 @@ CREATE TABLE
     ) 
 
 CREATE TABLE
+    formas_de_pago (
+        forma_pago_id INT NOT NULL AUTO_INCREMENT,
+        aclaracion VARCHAR(200) NOT NULL,
+        PRIMARY KEY (forma_pago_id)
+    );
+
+CREATE TABLE 
     pagos (
         pago_id INT NOT NULL AUTO_INCREMENT,
         alumno_id INT NOT NULL,
         fecha_pago DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
         monto DOUBLE(23, 2) NOT NULL,
-        forma_pago_id VARCHAR(20) NOT NULL,
+        forma_pago_id INT NOT NULL,
         alumno_plan_id INT NOT NULL,
         plan_id INT NOT NULL,
         aclaracion VARCHAR(200) NOT NULL,
@@ -61,14 +68,8 @@ CREATE TABLE
         FOREIGN KEY (alumno_id) REFERENCES alumnos(alumno_id),
         FOREIGN KEY (alumno_plan_id) REFERENCES alumnos_planes(alumno_plan_id),
         FOREIGN KEY (plan_id) REFERENCES planes(plan_id),
-        FOREIGN KEY (forma_pago_id) REFERENCES formas_de_pagos(forma_pago_id)
+        FOREIGN KEY (forma_pago_id) REFERENCES formas_de_pago(forma_pago_id)
 
-    );
+);
 
-CREATE TABLE
-    formas_de_pagos (
-        forma_pago_id INT NOT NULL AUTO_INCREMENT,
-        aclaracion VARCHAR(200) NOT NULL,
-        PRIMARY KEY (forma_pago_id)
-    );
 
