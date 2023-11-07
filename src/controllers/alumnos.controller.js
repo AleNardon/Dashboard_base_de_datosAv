@@ -11,7 +11,7 @@ export const getAlumnos = async (req, res) => {
             SELECT ap.alumno_id,MAX(ap.primer_clase) AS primer_clase,MAX(ap.ultima_clase) AS ultima_clase
             FROM alumnos_planes ap GROUP BY ap.alumno_id
         ) ap ON a.alumno_id = ap.alumno_id  `
-        const rows = await pool.query(sqlquery);
+        const [rows] = await pool.query(sqlquery);
         res.json(rows);
     } catch (error) {
         res.status(400).json(error);
