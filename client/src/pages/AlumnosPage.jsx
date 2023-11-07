@@ -13,6 +13,9 @@ function AlumnosPage() {
   }, []);
   return (
     <StrictMode>
+    <div className="divTitle">
+      <h1 >Alumnos</h1>
+    </div>
       <StyledEngineProvider injectFirst>
         <AlumnosTable data={alumnos} />
       </StyledEngineProvider>

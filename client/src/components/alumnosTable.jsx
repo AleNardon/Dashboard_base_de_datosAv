@@ -1,7 +1,7 @@
-import { DataGrid,GridToolbar,esES  } from '@mui/x-data-grid';
-import { Link } from "react-router-dom"
-import { currencyFormatter } from '../utils/currency';
-import {BsWhatsapp} from 'react-icons/bs';
+import { DataGrid, GridToolbar, esES } from "@mui/x-data-grid";
+import { Link } from "react-router-dom";
+import { currencyFormatter } from "../utils/currency";
+import { BsWhatsapp } from "react-icons/bs";
 
 // const alumnos=[
 //     {
@@ -16,108 +16,145 @@ import {BsWhatsapp} from 'react-icons/bs';
 //   },
 // ]
 
+const columns = [
+  { field: "id", headerName: "id" },
+  {
+    field: "nombre_apellido",
+    headerName: "Nombre y Apellido",
+    description: "Nombre y apellido de los alumnos registrados",
 
-const columns = [  
-    {field:'id',headerName:'id'},
-    {field:'nombre_apellido',headerName:'Nombre y Apellido',
-    flex:0.3,
-    minWidth:200,
-    
+    flex: 0.3,
+    minWidth: 200,
+
     renderCell: (params) => {
-        return <Link to={'/pagos/'+ params.row.id} className='link'>{params.value}</Link>
-      }
+      return (
+        <Link to={"/pagos/" + params.row.id} className="link">
+          {params.value}
+        </Link>
+      );
     },
-    
-    {field:'telefono',headerName:'Telefono', headerAlign:"left",
-    flex:0.2,
-    minwidth:120,
-    } ,
-    {field:'activo',headerName:'Activo',type:'number',
-    width:150, 
+  },
+
+  {
+    field: "telefono",
+    headerName: "Teléfono",
+    headerAlign: "left",
+    description: "Teléfono de los alumnos registrados",
+    flex: 0.2,
+    minwidth: 120,
+  },
+  {
+    field: "activo",
+    headerName: "Activo",
+    type: "number",
+    description: "Verde para un alumno activo, rojo para un alumno inactivo",
+    width: 150,
     // headerClassName: 'super-app-theme--header',
-    headerAlign:"center",
-    align: 'center',
+    headerAlign: "center",
+    align: "center",
     renderCell: (params) => {
-      if(params.value==1){
+      if (params.value == 1) {
         console.log(params);
-        return <span className='spanSiTablaAlumno'></span>
-      }else{
-        return <span className='spanNoTablaAlumno'></span>
-      }
-    }},
-    {field:'primer_clase',headerName:'Desde',width:180,type:'date',
-    valueGetter: (params) => {
-      if(params.value!=null){
-        return new Date(params.value)
-      }else{
-        return null
+        return <span className="spanSiTablaAlumno"></span>;
+      } else {
+        return <span className="spanNoTablaAlumno"></span>;
       }
     },
   },
-    {field:'ultima_clase',headerName:'Hasta',width:180,type:'date',
-
+  {
+    field: "primer_clase",
+    headerName: "Desde",
+    width: 180,
+    type: "date",
+    description:
+      "Fecha de la primer clase del último plan tomado por el alumno",
     valueGetter: (params) => {
-      if(params.value!=null){
-        return new Date(params.value)
-      }else{
-        return null
+      if (params.value != null) {
+        return new Date(params.value);
+      } else {
+        return null;
       }
     },
-    
   },
-    {field:'deuda',headerName:'Deuda',type:'number',headerAlign:"center",align: 'center',
-    minWidth:250,flex:0.3,
-    
-    renderCell: (params) => {
-      if(params.value>0){
-        return <span className='spanSiDeuda'>{currencyFormatter(params.value)}</span>
-      }else{
-        return <span className='spanNoDeuda'>$ 0</span>
+  {
+    field: "ultima_clase",
+    headerName: "Hasta",
+    width: 180,
+    type: "date",
+    description:
+      "Fecha de la utltima clase del último plan tomado por el alumno",
+
+    valueGetter: (params) => {
+      if (params.value != null) {
+        return new Date(params.value);
+      } else {
+        return null;
       }
-    }},
-    {field:'fecha_creacion',headerName:'-',maxWidth:200,align: 'right',
-    renderCell: (params) => {
-      return <a href={'https://wa.me/54'+params.row.telefono} target='_blank' ><BsWhatsapp className='wppIcon'/></a>
-    }
+    },
   },
+  {
+    field: "deuda",
+    headerName: "Deuda",
+    type: "number",
+    headerAlign: "center",
+    align: "center",
+    description: "Deuda existente del alumno",
+    minWidth: 250,
+    flex: 0.3,
 
-
-
-]
-
+    renderCell: (params) => {
+      if (params.value > 0) {
+        return (
+          <span className="spanSiDeuda">{currencyFormatter(params.value)}</span>
+        );
+      } else {
+        return <span className="spanNoDeuda">$ 0</span>;
+      }
+    },
+  },
+  {
+    field: "fecha_creacion",
+    headerName: "-",
+    maxWidth: 200,
+    align: "right",
+    renderCell: (params) => {
+      return (
+        <a href={"https://wa.me/54" + params.row.telefono} target="_blank">
+          <BsWhatsapp className="wppIcon" />
+        </a>
+      );
+    },
+  },
+];
 
 function AlumnosTable(props) {
-  
   return (
-
-    <div className='DivTable'>
+    <div className="DivTable">
       <DataGrid
-
         rows={props.data}
-        columns={columns}            
+        columns={columns}
         initialState={{
-            columns:{
-                columns,
-                columnVisibilityModel: {
-                    id: false,
-                    },
+          columns: {
+            columns,
+            columnVisibilityModel: {
+              id: false,
             },
-            pagination: {
-                paginationModel: { page: 0, pageSize: 10 },
-            },
+          },
+          pagination: {
+            paginationModel: { page: 0, pageSize: 10 },
+          },
         }}
         localeText={esES.components.MuiDataGrid.defaultProps.localeText}
-        pageSizeOptions={[5, 10,25]}
+        pageSizeOptions={[5, 10, 25]}
         disableColumnSelector
         disableDensitySelector
         disableRowSelectionOnClick
         slots={{
-            toolbar: GridToolbar,
-          }}
-        
+          toolbar: GridToolbar,
+        }}
       />
     </div>
-  )
+  );
 }
 
-export default AlumnosTable
+export default AlumnosTable;

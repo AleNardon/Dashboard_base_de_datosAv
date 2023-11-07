@@ -10,6 +10,9 @@ function PagosPage() {
   }, []);
   return (
     <StrictMode>
+      <div className="divTitle">
+      <h1 >Pagos</h1>
+    </div>
       <StyledEngineProvider injectFirst>
         <PagosTable data={pagos}  />
       </StyledEngineProvider>
