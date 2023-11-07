@@ -3,69 +3,22 @@ import { Link } from "react-router-dom"
 import { currencyFormatter } from '../utils/currency';
 import {BsWhatsapp} from 'react-icons/bs';
 
-const alumnos=[
-    {
-      "id": 38,
-      "nombre_apellido": "José Sanfilippo",
-      "telefono": "3411231236",
-      "activo": 1,
-      "fecha_creacion": "2023-10-23T03:00:00.000Z",
-      "primer_clase": null,
-      "ultima_clase": null,
-      "deuda": null
-  },
-  {
-      "id": 39,
-      "nombre_apellido": "Pablo Zabaleta",
-      "telefono": "3411231237",
-      "activo": 1,
-      "fecha_creacion": "2023-10-23T03:00:00.000Z",
-      "primer_clase": "2023-10-08T03:00:00.000Z",
-      "ultima_clase": "2023-10-29T03:00:00.000Z",
-      "deuda": 12500
-  },
-  {
-      "id": 40,
-      "nombre_apellido": "Juan Antonio Pizzi",
-      "telefono": "3411231238",
-      "activo": 1,
-      "fecha_creacion": "2023-10-23T03:00:00.000Z",
-      "primer_clase": null,
-      "ultima_clase": null,
-      "deuda": null
-  },
-  {
-      "id": 41,
-      "nombre_apellido": "Leandro Díaz",
-      "telefono": "3411231239",
-      "activo": 0,
-      "fecha_creacion": "2023-10-23T03:00:00.000Z",
-      "primer_clase": "2023-10-09T03:00:00.000Z",
-      "ultima_clase": "2023-10-30T03:00:00.000Z",
-      "deuda": 0
-  },
-  {
-      "id": 42,
-      "nombre_apellido": "Fabricio Coloccini",
-      "telefono": "3411231240",
-      "activo": 1,
-      "fecha_creacion": "2023-10-23T03:00:00.000Z",
-      "primer_clase": "2023-10-09T03:00:00.000Z",
-      "ultima_clase": "2023-10-30T03:00:00.000Z",
-      "deuda": 2500
-  },
-  {
-      "id": 43,
-      "nombre_apellido": "Ariel Montenegro",
-      "telefono": "3411231241",
-      "activo": 1,
-      "fecha_creacion": "2023-10-23T03:00:00.000Z",
-      "primer_clase": null,
-      "ultima_clase": null,
-      "deuda": null
-  },
-    ]
+// const alumnos=[
+//     {
+//       "id": 33,
+//       "nombre_apellido": "Leandro Romagnoli",
+//       "telefono": "3411231231",
+//       "activo": 1,
+//       "fecha_creacion": "2023-10-23T03:00:00.000Z",
+//       "primer_clase": null,
+//       "ultima_clase": null,
+//       "deuda": null
+//   },
+// ]
+
+
 const columns = [  
+    {field:'id',headerName:'id'},
     {field:'nombre_apellido',headerName:'Nombre y Apellido',
     flex:0.3,
     minWidth:200,
@@ -122,7 +75,7 @@ const columns = [
         return <span className='spanNoDeuda'>$ 0</span>
       }
     }},
-    {field:'id',headerName:'-',maxWidth:200,align: 'right',
+    {field:'fecha_creacion',headerName:'-',maxWidth:200,align: 'right',
     renderCell: (params) => {
       return <a href={'https://wa.me/54'+params.row.telefono} target='_blank' ><BsWhatsapp className='wppIcon'/></a>
     }
@@ -133,18 +86,25 @@ const columns = [
 ]
 
 
-function AlumnosTable() {
+function AlumnosTable(props) {
+  
   return (
 
     <div className='DivTable'>
       <DataGrid
 
-        rows={alumnos}
-        columns={columns}
+        rows={props.data}
+        columns={columns}            
         initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 10 },
-          },
+            columns:{
+                columns,
+                columnVisibilityModel: {
+                    id: false,
+                    },
+            },
+            pagination: {
+                paginationModel: { page: 0, pageSize: 10 },
+            },
         }}
         localeText={esES.components.MuiDataGrid.defaultProps.localeText}
         pageSizeOptions={[5, 10,25]}

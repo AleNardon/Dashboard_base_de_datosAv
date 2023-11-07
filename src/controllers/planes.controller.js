@@ -5,7 +5,8 @@ import { pool } from "../db.js";
 export const getPlans = async (req, res) => {
     try {
        
-        const sqlquery = `SELECT alu.nombre_apellido, monto_plan, pago_acumulado, primer_clase, ultima_clase
+        const sqlquery = `SELECT alumno_plan_id as id, alu.alumno_id,alu.nombre_apellido, monto_plan, pago_acumulado, primer_clase, ultima_clase,
+                        (monto_plan - pago_acumulado) as deuda
                     FROM alumnos_planes as aluplan
                     inner join alumnos as alu on aluplan.alumno_id = alu.alumno_id`
         const [rows] = await pool.query(sqlquery);
