@@ -519,3 +519,17 @@ color: #22873E;
 .MuiDataGrid-columnHeader:focus{
   outline: solid 0px  !important;
 }
+.FPago{
+  display: flex;
+  align-items: center;
+}
+.FPago svg{
+  font-size: 20px;
+  margin-left: 14px;
+}
+.cash svg{
+  color: #64b06c ;
+}
+.card svg{
+  color: #FF5F00 ;
+}

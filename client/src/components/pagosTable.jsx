@@ -2,7 +2,8 @@ import { DataGrid, GridToolbar, esES } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { currencyFormatter } from "../utils/currency";
 import { totalPagos } from "../utils/totalPagos";
-import { useDashboard } from "../context/dashboardContext";
+import { BsCash as Cash,BsFillCreditCard2FrontFill as Card} from "react-icons/bs";
+import { FcMoneyTransfer as Tranfer} from "react-icons/fc";
 
 // const pagos = [
 //     {
@@ -71,6 +72,27 @@ const columns = [
     flex: 0.3,
     headerAlign: "left",
     align: "left",
+    renderCell: (params) => {
+      console.log(params.value);
+      switch (params.value) {
+        case "efectivo":
+          return <div className="FPago cash"><p>Efectivo</p> <Cash /></div>;
+          
+        case "transferencia":
+          return <div className="FPago tranfer"><p>Transferencia </p><Tranfer /></div>;
+         
+        case "tarjeta de credito":
+          return <div className="FPago card"><p>Tarjeta de crédito </p><Card /></div>;
+          
+          case "tarjeta de debito":
+          return <div className="FPago card"><p>Tarjeta de débito </p><Card /></div>;
+          
+         
+      
+        default:
+          break;
+      }
+    }
   },
 
   {
