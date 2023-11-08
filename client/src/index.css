@@ -1,3 +1,17 @@
 body{
-  background: #d8d8d8;
+   
+    /* background: radial-gradient(circle, transparent 25%, #ffffff  26%),
+    linear-gradient(45deg, transparent 411%, #384e771d 47%, #384e771d 52%, transparent 53%), 
+    linear-gradient(135deg, transparent 46%, #384e771d 47%, #384e771d 52%, transparent 53%);
+    background-size: 3em 3em;
+    background-color: #ffffff; */
+        /* opacity: 0.15 */
+    
+
+
+
+        background: radial-gradient(transparent 90%, #384e7715 80%);
+        background-size: 1em 1em;
+        background-color: #ffffff;
+        opacity: 1.5
 }

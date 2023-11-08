@@ -31,17 +31,23 @@ function LoginPage() {
             <h1 className='tituloForm'>Inicio de sesión</h1>
             <form className='formLogin' onSubmit={onSubmit}>
                 <div className='divLabel'>
-                    <label className='labelForm' htmlFor="email">Correo electrónico</label>
+                    <p className='labelForm' htmlFor="email">Correo electrónico</p>
                     <input className='inputForm' type="email" {...register("email", {required: true})}  />
-                    {errors.email && <span className='spanLogin'>¡Este campo es requerido!</span>}
+                    <div>
+                        {errors.email && <span className='spanLogin'>¡Este campo es requerido!</span>}
+                    </div>
                 </div>
                 <div className='divLabel'>
-                    <label className='labelForm' htmlFor="password">Contraseña</label>
+                    <p className='labelForm' htmlFor="password">Contraseña</p>
                     <input className='inputForm' type="password" {...register("password", {required:true})}  />
-                    {errors.password && <span className='spanLogin'>¡Este campo es requerido!</span>}
-                    {LogErrors && <span className='spanLogin'>{LogErrors}</span>}
+                    <div>
+                        {errors.password && <span className='spanLogin'>¡Este campo es requerido!</span>}
+                        {LogErrors && <span className='spanLogin'>{LogErrors}</span>}
+                    </div>
                 </div>
+                <div className='divbtn'>
                 <button className='btn' type="submit">Login</button>
+                </div>
             </form>
         </div>
     </div>

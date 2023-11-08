@@ -351,7 +351,7 @@
   }
 
   :root {
-    --main-red-color: rgb(128, 2, 2);
+    --main-red-color: #800202;
     --main-green-color: #22873E;
     --main-blue-color: #384E77;
     
@@ -576,9 +576,9 @@ color: #22873E;
     border-color:#e0e0e0 !important;
 }
 body {
-    background-color: #fff !important;
+    
+    
 }
 .monto{
     font-size: 16px;
 }
-.bodyDashboard{}
