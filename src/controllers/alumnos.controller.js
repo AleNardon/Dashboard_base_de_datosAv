@@ -20,3 +20,16 @@ export const getAlumnos = async (req, res) => {
    
 };
 
+export const getAlumnoxId = async (req, res) => {
+
+    try {
+        const sqlquery = `SELECT a.alumno_id as id , a.nombre_apellido from alumnos as a WHERE a.alumno_id = ${req.params.id}  `
+        const [rows] = await pool.query(sqlquery);
+        res.json(rows);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+
+   
+};
+
