@@ -25,7 +25,7 @@ const columns = [
 
     renderCell: (params) => {
       return (
-        <Link to={"/pagos/a=" + params.row.alumno_id} className="link">
+        <Link to={"/pagos?a=" + params.row.alumno_id} className="link">
           {params.value}
         </Link>
       );
@@ -75,7 +75,7 @@ const columns = [
 
     renderCell: (params) => {
       if (params.value > 0) {
-        return <p className="monto">{currencyFormatter(params.value)}</p>;
+        return <p className="">{currencyFormatter(params.value)}</p>;
       } else {
         return <p>$ 0</p>;
       }
@@ -93,7 +93,7 @@ const columns = [
 
     renderCell: (params) => {
       if (params.value > 0) {
-        return <p className="monto">{currencyFormatter(params.value)}</p>;
+        return <p className="">{currencyFormatter(params.value)}</p>;
       } else {
         return <p>$ 0</p>;
       }
@@ -112,16 +112,16 @@ const columns = [
     renderCell: (params) => {
       if (params.value == params.row.monto_plan) {
         return (
-          <span className="spanSiDeuda">{currencyFormatter(params.value)}</span>
+          <span className="spanSiDeuda monto">{currencyFormatter(params.value)}</span>
         );
       } else if (params.value > 0) {
         return (
-          <span className="spanMedDeuda">
+          <span className="spanMedDeuda monto">
             {currencyFormatter(params.value)}
           </span>
         );
       } else {
-        return <span className="spanNoDeuda">$ 0</span>;
+        return <span className="spanNoDeuda monto">$ 0</span>;
       }
     },
   },

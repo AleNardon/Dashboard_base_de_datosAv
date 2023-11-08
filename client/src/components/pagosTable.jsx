@@ -28,9 +28,9 @@ const columns = [
 
     renderCell: (params) => {
       return (
-        <Link to={"/pagos/a=" + params.row.alumno_id} className="link">
+        <a href={"/pagos?a=" + params.row.alumno_id} className="link">
           {params.value}
-        </Link>
+        </a>
       );
     },
   },
@@ -70,10 +70,9 @@ const columns = [
     headerName: "Forma de pago",
     minwidth: 180,
     flex: 0.3,
-    headerAlign: "left",
-    align: "left",
+    headerAlign: "right",
+    align: "right",
     renderCell: (params) => {
-      console.log(params.value);
       switch (params.value) {
         case "efectivo":
           return <div className="FPago cash"><p>Efectivo</p> <Cash /></div>;
@@ -99,8 +98,8 @@ const columns = [
     field: "monto",
     headerName: "Monto",
     type: "number",
-    headerAlign: "left",
-    align: "left",
+    headerAlign: "center",
+    align: "right",
     description: "Monto del pago efectuado",
     minWidth: 250,
     flex: 0.3,
@@ -109,14 +108,14 @@ const columns = [
       if (params.value > 0) {
         return <p className="monto">{currencyFormatter(params.value)}</p>;
       } else {
-        return <p>$ 0</p>;
+        return <p className="monto">$ 0</p>;
       }
     },
   },
 ];
 
 function PagosTable(props) {
-  console.log(props.data);
+
 
   return (
     <div className="DivTable">
@@ -135,7 +134,7 @@ function PagosTable(props) {
           },
         }}
         localeText={esES.components.MuiDataGrid.defaultProps.localeText}
-        pageSizeOptions={[5, 10, 25]}
+        pageSizeOptions={[5, 10, 25,50]}
         disableColumnSelector
         disableDensitySelector
         disableRowSelectionOnClick
