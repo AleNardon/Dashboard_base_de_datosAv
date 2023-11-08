@@ -8,6 +8,7 @@ import { totalPagos } from "../utils/totalPagos";
 import { currencyFormatter } from "../utils/currency";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
+import Loader from "../components/Loader";
 
 function PagosPage() {
 	const targetRef = useRef(null);
@@ -53,7 +54,7 @@ function PagosPage() {
 		}
 	}, []);
 	if (params.a && !alupago) {
-        return <div>Cargando...</div>;
+        return <Loader/>
 	}
 	return (
 		<StrictMode>
