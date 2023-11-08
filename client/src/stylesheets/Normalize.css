@@ -428,8 +428,9 @@
     width: 80%;
     height: 100%;
     margin: auto;
-    margin-top: 30px;
-    margin-bottom: 100px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    
     background-color: #f3f3f3;
     border-radius: 7px;
     box-shadow: 0px 0px 2px rgb(145 145 145);
@@ -439,13 +440,13 @@
     width: 80%;
     height: 100%;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 40px;
   }
   .divTitle h1{
     font-family: 'Poppins', sans-serif !important;
-    font-size: 35px;
+    font-size: 30px;
     color: var(--main-blue-color);
-    
+    margin:0px;
   }
 .MuiDataGrid-root{
   border-width: 0px; 
@@ -532,4 +533,37 @@ color: #22873E;
 }
 .card svg{
   color: #FF5F00 ;
+}
+
+#Tot{
+    margin: auto;
+    width: 80%;
+    
+}
+#Tot h1{
+    font-size: 25px;
+    color: var(--main-blue-color);
+    margin:0px;
+}
+#Tot + div{
+    box-shadow: 0px 0px 2px rgb(145 145 145);
+}
+#Tot div{
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 7px;
+    
+    float: right;
+    background-color: #f3f3f3;
+    border-radius: 7px;
+}
+.TitleTot{
+    font-size: 16px;
+} 
+.DataTot{
+    font-weight: 550;
+    font-size: 18px;
+    color: var(--main-blue-color);
 }
