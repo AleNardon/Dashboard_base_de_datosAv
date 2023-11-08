@@ -2,7 +2,8 @@ import { DataGrid, GridToolbar, esES } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { currencyFormatter } from "../utils/currency";
 import { totalPagos } from "../utils/totalPagos";
-import { useDashboard } from "../context/dashboardContext";
+import { BsCash as Cash,BsFillCreditCard2FrontFill as Card} from "react-icons/bs";
+import { FcMoneyTransfer as Tranfer} from "react-icons/fc";
 
 // const pagos = [
 //     {
@@ -27,9 +28,9 @@ const columns = [
 
     renderCell: (params) => {
       return (
-        <Link to={"/pagos/a=" + params.row.alumno_id} className="link">
+        <a href={"/pagos?a=" + params.row.alumno_id} className="link">
           {params.value}
-        </Link>
+        </a>
       );
     },
   },
@@ -69,16 +70,36 @@ const columns = [
     headerName: "Forma de pago",
     minwidth: 180,
     flex: 0.3,
-    headerAlign: "left",
-    align: "left",
+    headerAlign: "right",
+    align: "right",
+    renderCell: (params) => {
+      switch (params.value) {
+        case "efectivo":
+          return <div className="FPago cash"><p>Efectivo</p> <Cash /></div>;
+          
+        case "transferencia":
+          return <div className="FPago tranfer"><p>Transferencia </p><Tranfer /></div>;
+         
+        case "tarjeta de credito":
+          return <div className="FPago card"><p>Tarjeta de crédito </p><Card /></div>;
+          
+          case "tarjeta de debito":
+          return <div className="FPago card"><p>Tarjeta de débito </p><Card /></div>;
+          
+         
+      
+        default:
+          break;
+      }
+    }
   },
 
   {
     field: "monto",
     headerName: "Monto",
     type: "number",
-    headerAlign: "left",
-    align: "left",
+    headerAlign: "center",
+    align: "right",
     description: "Monto del pago efectuado",
     minWidth: 250,
     flex: 0.3,
@@ -87,14 +108,14 @@ const columns = [
       if (params.value > 0) {
         return <p className="monto">{currencyFormatter(params.value)}</p>;
       } else {
-        return <p>$ 0</p>;
+        return <p className="monto">$ 0</p>;
       }
     },
   },
 ];
 
 function PagosTable(props) {
-  console.log(props.data);
+
 
   return (
     <div className="DivTable">
@@ -113,7 +134,7 @@ function PagosTable(props) {
           },
         }}
         localeText={esES.components.MuiDataGrid.defaultProps.localeText}
-        pageSizeOptions={[5, 10, 25]}
+        pageSizeOptions={[5, 10, 25,50]}
         disableColumnSelector
         disableDensitySelector
         disableRowSelectionOnClick

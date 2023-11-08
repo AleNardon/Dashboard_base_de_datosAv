@@ -28,7 +28,7 @@ const columns = [
 
     renderCell: (params) => {
       return (
-        <Link to={"/pagos/" + params.row.id} className="link">
+        <Link to={"/pagos?a=" + params.row.id} className="link">
           {params.value}
         </Link>
       );
@@ -54,7 +54,7 @@ const columns = [
     align: "center",
     renderCell: (params) => {
       if (params.value == 1) {
-        console.log(params);
+        
         return <span className="spanSiTablaAlumno"></span>;
       } else {
         return <span className="spanNoTablaAlumno"></span>;
