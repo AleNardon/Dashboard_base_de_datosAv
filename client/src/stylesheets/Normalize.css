@@ -357,6 +357,7 @@
     
     --main-redneg-color: #c60000;
     --main-yellowneg-color: #CCA30E;
+    --main-background-color: rgb(243, 243, 243);
   }
 
   .nabvar{
@@ -364,7 +365,7 @@
     display:grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    background: #d1d1d1;
+    background:var(--main-background-color) ;
     
     /* position:fixed; */
     top:0;
@@ -431,7 +432,7 @@
     margin-top: 20px;
     margin-bottom: 10px;
     
-    background-color: #f3f3f3;
+    background-color: var(--main-background-color);
     border-radius: 7px;
     box-shadow: 0px 0px 2px rgb(145 145 145);
   }
@@ -545,10 +546,12 @@ color: #22873E;
     color: var(--main-blue-color);
     margin:0px;
 }
-#Tot + div{
-    box-shadow: 0px 0px 2px rgb(145 145 145);
+.divTot{
+    background-color: var(--main-background-color)  ;
+    box-shadow: 0px 0px 2px rgb(145 145 145) ;
 }
 #Tot div{
+    
     width: max-content;
     display: flex;
     flex-direction: row;
@@ -556,14 +559,26 @@ color: #22873E;
     padding: 7px;
     
     float: right;
-    background-color: #f3f3f3;
     border-radius: 7px;
 }
 .TitleTot{
     font-size: 16px;
+    box-shadow: none;
 } 
 .DataTot{
     font-weight: 550;
     font-size: 18px;
     color: var(--main-blue-color);
+    box-shadow: none;
+    
 }
+.MuiDataGrid-withBorderColor {
+    border-color:#e0e0e0 !important;
+}
+body {
+    background-color: #fff !important;
+}
+.monto{
+    font-size: 16px;
+}
+.bodyDashboard{}
