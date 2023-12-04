@@ -5,5 +5,6 @@ export const getAlumnosIdRequest = (id) => axios.get(`/alumnos/${id}`)
 export const getPagosRequest = () => axios.get(`/pagos`)
 export const getPlanesRequest = () => axios.get(`/planes`)
 export const getPagosAluRequest = (id) => axios.get(`/pagos/alumno/${id}`)
+export const getInicioInfoRequest = () => axios.get(`/inicio`)
 // export const getInicio = () => axios.get(`/`)
 
