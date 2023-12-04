@@ -579,3 +579,27 @@ color: #22873E;
 .monto{
     font-size: 16px;
 }
+
+.divCard{
+    width: 29em;
+    background: var(--main-background-color);
+    border-radius: 7px;
+    padding: 30px;
+    box-shadow: 0px 0px 2px rgb(145 145 145) ;
+    margin-bottom: 15px;
+}
+
+#prog{
+    width: 100%;
+    color: var(--main-blue-color);
+}
+#prog[value]::-webkit-progress-value {
+    background-color: rgb(51, 139, 0) !important;
+  }
+.divInit{
+    justify-content: center;
+    margin: 6em 10% 0em 10%;
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}

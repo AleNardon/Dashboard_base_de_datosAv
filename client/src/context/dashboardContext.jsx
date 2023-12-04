@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { getAlumnosRequest, getPagosRequest, getPlanesRequest,getPagosAluRequest, getAlumnosIdRequest } from "../api/dashboard";
+import { getAlumnosRequest, getPagosRequest, getPlanesRequest,getPagosAluRequest, getAlumnosIdRequest,getInicioInfoRequest } from "../api/dashboard";
 
 
 const DashboardContext = createContext();
@@ -19,6 +19,7 @@ export const DashboardProvider = ({ children }) => {
     const [alupago, setAlupago] = useState([]);
     const [alumnos, setAlumnos] = useState([]);
     const [planes, setPlanes] = useState([]);
+    const [inicio, setInicio] = useState(null);
 
     const getPagos = async (param) => {
         try {
@@ -51,6 +52,15 @@ export const DashboardProvider = ({ children }) => {
             console.log(error);
         }
     }   
+    const getInicio = async () => {
+        try {
+            const res = await getInicioInfoRequest();
+            setInicio(res.data);
+            console.log(res.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }   
 
 
     return (
@@ -63,6 +73,8 @@ export const DashboardProvider = ({ children }) => {
                 planes,
                 getPlanes,
                 alupago,
+                inicio,
+                getInicio
             }}
             >
             {children}
