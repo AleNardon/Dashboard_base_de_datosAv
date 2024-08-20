@@ -6,3 +6,5 @@ INSERT INTO `planes` ( `cant_clases`, `precio`, `aclaracion`) VALUES
 
 INSERT INTO `formas_de_pago` ( `aclaracion`) VALUES 
 ( 'efectivo'),( 'tranferencia'),( 'tarjeta de credito'),( 'tarjeta de debito')
+
+INSERT INTO `users` ( `email`, `username`, `password`, `user_level`, `created_at`) VALUES ('test@test.com', 'user', '$2b$10$eXA5eRKVXuRHvwzHQoAMKeokFRLgdieQSUg6zJ7gKOCPwgiFIXo7q', '1', current_timestamp());

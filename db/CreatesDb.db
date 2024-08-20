@@ -1,75 +1,72 @@
-#create database dashboardBD use dashboardBD 
+-- Crear la base de datos y seleccionarla
+-- CREATE DATABASE dashboardBD;
+-- USE dashboardBD;
 
-Create table
-    users(
-        id int primary key AUTO_INCREMENT,
-        email varchar(255) NOT NULL,
-        username varchar(255) NOT NULL,
-        password varchar(255) NOT NULL,
-        user_level int,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        UNIQUE(username, email)
-    )
-
-CREATE TABLE
-    alumnos (
-        alumno_id int NOT NULL AUTO_INCREMENT,
-        nombre_apellido VARCHAR(90) NOT NULL,
-        telefono VARCHAR(20) NOT NULL,
-        activo INT NOT NULL,
-        fecha_creacion DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (alumno_id)
-    )
-
-
-
-CREATE TABLE
-    planes (
-        plan_id INT NOT NULL AUTO_INCREMENT,
-        cant_clases INT NOT NULL,
-        precio DOUBLE(23, 2) NOT NULL,
-        aclaracion VARCHAR(200) NOT NULL,
-        PRIMARY KEY (plan_id)
-    )
-
-CREATE TABLE
-    alumnos_planes (
-        alumno_plan_id INT NOT NULL AUTO_INCREMENT,
-        alumno_id INT NOT NULL,
-        plan_id INT NOT NULL,
-        monto_plan DOUBLE(23, 2) NOT NULL,
-        pago_acumulado DOUBLE(23, 2) NOT NULL,
-        primer_clase DATE NOT NULL,
-        ultima_clase DATE NOT NULL,
-        aclaracion VARCHAR(200) NOT NULL,
-        PRIMARY KEY (alumno_plan_id),
-        FOREIGN KEY (alumno_id) REFERENCES alumnos(alumno_id),
-        FOREIGN KEY (plan_id) REFERENCES planes(plan_id)
-    ) 
-
-CREATE TABLE
-    formas_de_pago (
-        forma_pago_id INT NOT NULL AUTO_INCREMENT,
-        aclaracion VARCHAR(200) NOT NULL,
-        PRIMARY KEY (forma_pago_id)
-    );
-
-CREATE TABLE 
-    pagos (
-        pago_id INT NOT NULL AUTO_INCREMENT,
-        alumno_id INT NOT NULL,
-        fecha_pago DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        monto DOUBLE(23, 2) NOT NULL,
-        forma_pago_id INT NOT NULL,
-        alumno_plan_id INT NOT NULL,
-        plan_id INT NOT NULL,
-        aclaracion VARCHAR(200) NOT NULL,
-        PRIMARY KEY (pago_id),
-        FOREIGN KEY (alumno_id) REFERENCES alumnos(alumno_id),
-        FOREIGN KEY (alumno_plan_id) REFERENCES alumnos_planes(alumno_plan_id),
-        FOREIGN KEY (plan_id) REFERENCES planes(plan_id),
-        FOREIGN KEY (forma_pago_id) REFERENCES formas_de_pago(forma_pago_id)
-
+-- Crear la tabla users
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    user_level INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (username, email)
 );
 
+-- Crear la tabla alumnos
+CREATE TABLE alumnos (
+    alumno_id INT NOT NULL AUTO_INCREMENT,
+    nombre_apellido VARCHAR(90) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    activo INT NOT NULL,
+    fecha_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (alumno_id)
+);
 
+-- Crear la tabla planes
+CREATE TABLE planes (
+    plan_id INT NOT NULL AUTO_INCREMENT,
+    cant_clases INT NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
+    aclaracion VARCHAR(200) NOT NULL,
+    PRIMARY KEY (plan_id)
+);
+
+-- Crear la tabla alumnos_planes
+CREATE TABLE alumnos_planes (
+    alumno_plan_id INT NOT NULL AUTO_INCREMENT,
+    alumno_id INT NOT NULL,
+    plan_id INT NOT NULL,
+    monto_plan DECIMAL(10, 2) NOT NULL,
+    pago_acumulado DECIMAL(10, 2) NOT NULL,
+    primer_clase DATE NOT NULL,
+    ultima_clase DATE NOT NULL,
+    aclaracion VARCHAR(200) NOT NULL,
+    PRIMARY KEY (alumno_plan_id),
+    FOREIGN KEY (alumno_id) REFERENCES alumnos(alumno_id),
+    FOREIGN KEY (plan_id) REFERENCES planes(plan_id)
+);
+
+-- Crear la tabla formas_de_pago
+CREATE TABLE formas_de_pago (
+    forma_pago_id INT NOT NULL AUTO_INCREMENT,
+    aclaracion VARCHAR(200) NOT NULL,
+    PRIMARY KEY (forma_pago_id)
+);
+
+-- Crear la tabla pagos
+CREATE TABLE pagos (
+    pago_id INT NOT NULL AUTO_INCREMENT,
+    alumno_id INT NOT NULL,
+    fecha_pago DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    monto DECIMAL(10, 2) NOT NULL,
+    forma_pago_id INT NOT NULL,
+    alumno_plan_id INT NOT NULL,
+    plan_id INT NOT NULL,
+    aclaracion VARCHAR(200) NOT NULL,
+    PRIMARY KEY (pago_id),
+    FOREIGN KEY (alumno_id) REFERENCES alumnos(alumno_id),
+    FOREIGN KEY (alumno_plan_id) REFERENCES alumnos_planes(alumno_plan_id),
+    FOREIGN KEY (plan_id) REFERENCES planes(plan_id),
+    FOREIGN KEY (forma_pago_id) REFERENCES formas_de_pago(forma_pago_id)
+);
