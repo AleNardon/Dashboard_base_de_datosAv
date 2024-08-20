@@ -6,6 +6,7 @@ const defaultOptions = {
   }
   
  export const currencyFormatter = (value, options) => {
+    value = parseFloat(value)
     if (typeof value !== 'number') value = 0
     options = { ...defaultOptions, ...options }
     value = value.toFixed(options.significantDigits)
