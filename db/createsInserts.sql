@@ -1,6 +1,6 @@
 -- Crear la base de datos y seleccionarla
--- CREATE DATABASE dashboardBD;
--- USE dashboardBD;
+-- CREATE DATABASE dashboardbd;
+-- USE dashboardbd;
 
 -- Crear la tabla users
 CREATE TABLE users (
@@ -76,7 +76,7 @@ CREATE TABLE pagos (
 -- Insertar datos en la tabla users
 #insert testing de la tabla alumnos
 INSERT INTO `alumnos` (`alumno_id`,`nombre_apellido`, `telefono`, `activo`) values
-,(1,'Leandro Romagnoli' , '3411231231' , 1 )
+(1,'Leandro Romagnoli' , '3411231231' , 1 )
 ,(2,'Ignacio Piatti' , '3411231232' , 1 )
 ,(3,'Bernardo Romeo' , '3411231233' , 1 )
 ,(4,'Ezequiel Lavezzi' , '3411231234' , 1 )
